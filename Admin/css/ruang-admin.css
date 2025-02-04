@@ -213,3 +213,36 @@
   .bg-gradient-default {
     background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
   }
+
+  .bg-gradient-login {
+    background-color: #f8f9fc;
+    background-size: cover;
+  }
+  
+  .bg-gray-100 {
+    background-color: #f8f9fc !important;
+  }
+  
+  .bg-gray-200 {
+    background-color: #eaecf4 !important;
+  }
+  
+  .bg-gray-300 {
+    background-color: #dddfeb !important;
+  }
+  
+  .bg-gray-400 {
+    background-color: #d1d3e2 !important;
+  }
+  
+  .bg-gray-500 {
+    background-color: #b7b9cc !important;
+  }
+  
+  .bg-gray-600 {
+    background-color: #858796 !important;
+  }
+  
+  .bg-gray-700 {
+    background-color: #6e707e !important;
+  }
