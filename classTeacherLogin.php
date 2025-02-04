@@ -54,6 +54,46 @@ session_start();
                                         </div>
                                     </form>
 
+                                    <?php
+
+                                        if(isset($_POST['login'])){
+
+                                            $username = $_POST['username'];
+                                            $password = $_POST['password'];
+
+                                            $password = md5($password);
+
+                                            $query = "SELECT * FROM tblclassteacher WHERE emailAddress = '$username' AND password = '$password'";
+                                            $rs = $conn->query($query);
+                                            $num = $rs->num_rows;
+                                            $rows = $rs->fetch_assoc();
+
+                                            if($num > 0){
+
+                                            $_SESSION['userId'] = $rows['Id'];
+                                            $_SESSION['firstName'] = $rows['firstName'];
+                                            $_SESSION['lastName'] = $rows['lastName'];
+                                            $_SESSION['emailAddress'] = $rows['emailAddress'];
+                                            $_SESSION['classId'] = $rows['classId'];
+                                            $_SESSION['classArmId'] = $rows['classArmId'];
+
+                                            echo "<script type = \"text/javascript\">
+                                            window.location = (\"ClassTeacher/index.php\")
+                                            </script>";
+                                            }
+
+                                            else{
+
+                                            echo "<div class='alert alert-danger' role='alert'>
+                                            Invalid Username/Password!
+                                            </div>";
+
+                                            }
+                                        }
+                                    ?>
+
+
+
     </body>
         
 </html>                                 
