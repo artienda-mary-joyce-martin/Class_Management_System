@@ -246,3 +246,39 @@
   .bg-gray-700 {
     background-color: #6e707e !important;
   }
+
+  .bg-gray-800 {
+    background-color: #5a5c69 !important;
+  }
+  
+  .bg-gray-900 {
+    background-color: #3a3b45 !important;
+  }
+  
+  .o-hidden {
+    overflow: hidden !important;
+  }
+  
+  .text-xs {
+    font-size: .7rem;
+  }
+  
+  .text-lg {
+    font-size: 1.2rem;
+  }
+  
+  .text-gray-100 {
+    color: #f8f9fc !important;
+  }
+  
+  .text-gray-200 {
+    color: #eaecf4 !important;
+  }
+  
+  .text-gray-300 {
+    color: #dddfeb !important;
+  }
+  
+  .text-gray-400 {
+    color: #d1d3e2 !important;
+  }
