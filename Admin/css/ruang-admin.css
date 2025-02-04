@@ -573,3 +573,39 @@
     background-color: #eaecf4;
     color: #3a3b45;
   }
+
+  @media (min-width: 576px) {
+    .topbar .dropdown {
+      position: relative;
+    }
+  
+    .topbar .dropdown .dropdown-menu {
+      width: auto;
+      right: 0;
+    }
+  
+    .topbar .dropdown-list {
+      width: 20rem !important;
+    }
+  
+    .topbar .dropdown-list .dropdown-item .text-truncate {
+      max-width: 13.375rem;
+    }
+  
+  }
+  
+  .topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #fafafa;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+  }
+  
+  .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+    color: #e0e0e0;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+  }
+  
+  .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
+    color: #858796;
+  }
