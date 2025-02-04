@@ -36,3 +36,35 @@
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
   }
+
+  .container,
+  .container-fluid,
+  .container-login {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  
+  
+  @media (min-width:768px) {
+    .container-login {
+      margin-left: 25rem;
+      margin-right: 25rem;
+    }
+  }
+  
+  
+  .scroll-to-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: none;
+    width: 2.75rem;
+    height: 2.75rem;
+    text-align: center;
+    color: #fff;
+    background: rgba(90, 92, 105, 0.5);
+    line-height: 46px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+  }
