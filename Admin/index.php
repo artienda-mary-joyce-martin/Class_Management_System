@@ -177,3 +177,73 @@ $totAttendance = mysqli_num_rows($query1);
                           </div>
                         </div>
           
+                         <!-- Session and Terms Card  -->
+                         <?php 
+            $query1=mysqli_query($conn,"SELECT * from tblsessionterm");                       
+            $sessTerm = mysqli_num_rows($query1);
+            ?>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                          <div class="card h-100">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-uppercase mb-1">Session & Terms</div>
+                                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $sessTerm;?></div>
+                                  <div class="mt-2 mb-0 text-muted text-xs">
+                                  </div>
+                                </div>
+                                <div class="col-auto">
+                                  <i class="fas fa-calendar-alt fa-2x text-warning"></i>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Terms Card  -->
+            <?php 
+            $query1=mysqli_query($conn,"SELECT * from tblterm");                       
+            $termonly = mysqli_num_rows($query1);
+            ?>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                          <div class="card h-100">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                  <div class="text-xs font-weight-bold text-uppercase mb-1">Terms</div>
+                                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $termonly;?></div>
+                                  <div class="mt-2 mb-0 text-muted text-xs">
+                                  </div>
+                                </div>
+                                <div class="col-auto">
+                                  <i class="fas fa-th fa-2x text-info"></i>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+          <!--Row-->
+
+        </div>
+        <!---Container Fluid-->
+      </div>
+      <!-- Footer -->
+      <?php include 'includes/footer.php';?>
+      <!-- Footer -->
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <script src="../vendor/chart.js/Chart.min.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>  
+</body>
+
+</html>
