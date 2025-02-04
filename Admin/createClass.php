@@ -61,3 +61,26 @@ if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
         }
     }
 
+//--------------------------------DELETE------------------------------------------------------------------
+
+  if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "delete")
+	{
+        $Id= $_GET['Id'];
+
+        $query = mysqli_query($conn,"DELETE FROM tblclass WHERE Id='$Id'");
+
+        if ($query == TRUE) {
+
+                echo "<script type = \"text/javascript\">
+                window.location = (\"createClass.php\")
+                </script>";  
+        }
+        else{
+
+            $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>"; 
+         }
+      
+  }
+
+
+?>
