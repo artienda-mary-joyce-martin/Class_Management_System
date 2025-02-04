@@ -40,3 +40,24 @@ if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
         $query=mysqli_query($conn,"select * from tblclass where Id ='$Id'");
         $row=mysqli_fetch_array($query);
 
+       //------------UPDATE-----------------------------
+
+        if(isset($_POST['update'])){
+    
+            $className=$_POST['className'];
+        
+            $query=mysqli_query($conn,"update tblclass set className='$className' where Id='$Id'");
+
+            if ($query) {
+                
+                echo "<script type = \"text/javascript\">
+                window.location = (\"createClass.php\")
+                </script>"; 
+            }
+            else
+            {
+                $statusMsg = "<div class='alert alert-danger' style='margin-right:700px;'>An error Occurred!</div>";
+            }
+        }
+    }
+
