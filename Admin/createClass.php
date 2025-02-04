@@ -3,6 +3,7 @@ error_reporting(0);
 include '../Includes/dbcon.php';
 include '../Includes/session.php';
 
+
 //------------------------SAVE--------------------------------------------------
 
 if(isset($_POST['save'])){
@@ -31,6 +32,7 @@ if(isset($_POST['save'])){
   }
 }
 
+
 //--------------------EDIT------------------------------------------------------------
 
 if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
@@ -40,7 +42,8 @@ if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
         $query=mysqli_query($conn,"select * from tblclass where Id ='$Id'");
         $row=mysqli_fetch_array($query);
 
-       //------------UPDATE-----------------------------
+
+ //------------UPDATE-----------------------------
 
         if(isset($_POST['update'])){
     
@@ -60,6 +63,7 @@ if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
             }
         }
     }
+
 
 //--------------------------------DELETE------------------------------------------------------------------
 
@@ -84,3 +88,4 @@ if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
 
 
 ?>
+
