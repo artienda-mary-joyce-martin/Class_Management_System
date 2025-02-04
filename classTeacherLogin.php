@@ -35,7 +35,24 @@ session_start();
                                         <br><br>
                                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                     </div>
-                                    
+
+                                    <form class="user" method="Post" action="">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" required name="username" id="exampleInputEmail" placeholder="Enter Email Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" required class="form-control" id="exampleInputPassword" placeholder="Enter Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary btn-block" value="Login" name="login" />
+                                        </div>
+                                    </form>
 
     </body>
         
