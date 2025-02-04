@@ -31,3 +31,12 @@ if(isset($_POST['save'])){
   }
 }
 
+//--------------------EDIT------------------------------------------------------------
+
+if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
+	{
+        $Id= $_GET['Id'];
+
+        $query=mysqli_query($conn,"select * from tblclass where Id ='$Id'");
+        $row=mysqli_fetch_array($query);
+
