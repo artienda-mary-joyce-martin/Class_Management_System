@@ -168,5 +168,113 @@
                     </form>
                     </div>
                 </div>
+                    <!-- Input Group -->
+                    <div class="row">
+                    <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">All Users</h6>
+                        </div>
+                        <div class="table-responsive p-3">
+                        <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                            <thead class="thead-light">
+                            <tr>
+                                <th>Role</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
+                                <th>Date of Birth</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>LGA</th>
+                                <th>Email Address</th>
+                                <th>Phone No</th>
+                                <th>Address</th>
+                                <th>Date Registered</th>
+                                <th>Delete</th>
+                                <th>Edit</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Role</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
+                                <th>Date of Birth</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>LGA</th>
+                                <th>Email Address</th>
+                                <th>Phone No</th>
+                                <th>Address</th>
+                                <th>Date Registered</th>
+                                <th>Delete</th>
+                                <th>Edit</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+
+                        <?php
+                            $query = "SELECT roles.roleName,users.firstName,users.lastName,users.gender,users.dob,users.city,users.state,users.lga,users.emailAddress,users.address,users.phoneNo,users.dateCreated
+                            FROM users
+                            INNER JOIN roles ON roles.Id = users.roleId
+                            WHERE users.coopId = ".$_SESSION['coopId']."";
+
+                            $rs = $conn->query($query);
+                            $num = $rs->num_rows;
+                            if($num > 0)
+                            { 
+                                while ($rows = $rs->fetch_assoc())
+                                {
+                                    $gender = "";
+                                    if($rows['gender'] == "1"){$gender = "Male";}else{$gender = "Female";}
+                                    echo"
+                                    <tr>
+                                        <td>".$rows['roleName']."</td>
+                                        <td>".$rows['firstName']."</td>
+                                        <td>".$rows['lastName']."</td>
+                                        <td>".$gender."</td>
+                                        <td>".$rows['dob']."</td>
+                                        <td>".$rows['city']."</td>
+                                        <td>".$rows['state']."</td>
+                                        <td>".$rows['lga']."</td>
+                                        <td>".$rows['emailAddress']."</td>
+                                        <td>".$rows['phoneNo']."</td>
+                                        <td>".$rows['address']."</td>
+                                        <td>".$rows['dateCreated']."</td>
+                                        <td><a href=''><i class='fas fa-fw fa-trash'></i></a></td>
+                                        <td><a href=''><i class='fas fa-fw fa-edit'></i></a></td>
+                                    </tr>";
+                                }
+                            }
+                            else
+                            {  
+                                echo   
+                                "<div class='alert alert-danger' role='alert'>
+                                    No Record Found!
+                                    </div>";
+                            }
+                            
+                            ?>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                <!--Row-->
+
+                </div>
+                <!---Container Fluid-->
+            </div>
+            <!-- Footer -->
+            <?php include "Includes/footer.php";?>
+            <!-- Footer -->
+            </div>
+        </div> 
+                
+
     </body>
 </html>   
