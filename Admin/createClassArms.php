@@ -138,3 +138,23 @@ if (isset($_GET['Id']) && isset($_GET['action']) && $_GET['action'] == "edit")
                         <div class="col-xl-6">
                         <label class="form-control-label">Select Class<span class="text-danger ml-2">*</span></label>
  <?php
+
+$qry= "SELECT * FROM tblclass ORDER BY className ASC";
+                        $result = $conn->query($qry);
+                        $num = $result->num_rows;		
+                        if ($num > 0){
+                          echo ' <select required name="classId" class="form-control mb-3">';
+                          echo'<option value="">--Select Class--</option>';
+                          while ($rows = $result->fetch_assoc()){
+                          echo'<option value="'.$rows['Id'].'" >'.$rows['className'].'</option>';
+                              }
+                                  echo '</select>';
+                              }
+                            ?>  
+                        </div>
+                        <div class="col-xl-6">
+                        <label class="form-control-label">Class Arm Name<span class="text-danger ml-2">*</span></label>
+                      <input type="text" class="form-control" name="classArmName" value="<?php echo $row['classArmName'];?>" id="exampleInputFirstName" placeholder="Class Arm Name">
+                        </div>
+                    </div>
+                      <?php
