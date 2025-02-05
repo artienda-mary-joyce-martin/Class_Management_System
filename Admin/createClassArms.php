@@ -158,3 +158,106 @@ $qry= "SELECT * FROM tblclass ORDER BY className ASC";
                         </div>
                     </div>
                       <?php
+
+if (isset($Id))
+                    {
+                    ?>
+                    <button type="submit" name="update" class="btn btn-warning">Update</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <?php
+                    } else {           
+                    ?>
+                    <button type="submit" name="save" class="btn btn-primary">Save</button>
+                    <?php
+                    }         
+                    ?>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Input Group -->
+                 <div class="row">
+              <div class="col-lg-12">
+              <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">All Class Arm</h6>
+                </div>
+                <div class="table-responsive p-3">
+                  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>#</th>
+                        <th>Class Name</th>
+                        <th>Class Arm Name</th>
+                         <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                  
+                    <tbody>
+
+                  <?php
+                      $query = "SELECT tblclassarms.Id,tblclassarms.isAssigned,tblclass.className,tblclassarms.classArmName 
+                      FROM tblclassarms
+                      INNER JOIN tblclass ON tblclass.Id = tblclassarms.classId";
+                      $rs = $conn->query($query);
+                      $num = $rs->num_rows;
+                      $sn=0;
+                      $status="";
+                      if($num > 0)
+                      { 
+                        while ($rows = $rs->fetch_assoc())
+                          {
+                              if($rows['isAssigned'] == '1'){$status = "Assigned";}else{$status = "UnAssigned";}
+                             $sn = $sn + 1;
+                            echo"
+                              <tr>
+                                <td>".$sn."</td>
+                                <td>".$rows['className']."</td>
+                                <td>".$rows['classArmName']."</td>
+                                <td>".$status."</td>
+                                <td><a href='?action=edit&Id=".$rows['Id']."'><i class='fas fa-fw fa-edit'></i>Edit</a></td>
+                                <td><a href='?action=delete&Id=".$rows['Id']."'><i class='fas fa-fw fa-trash'></i>Delete</a></td>
+                              </tr>";
+                          }
+                      }
+                      else
+                      {
+                           echo   
+                           "<div class='alert alert-danger' role='alert'>
+                            No Record Found!
+                            </div>";
+                      }
+                      
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <!--Row-->
+
+        </div>
+        <!---Container Fluid-->
+      </div>
+      <!-- Footer -->
+       <?php include "Includes/footer.php";?>
+      <!-- Footer -->
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+   <!-- Page level plugins -->
+  <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
